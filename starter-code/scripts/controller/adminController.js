@@ -5,6 +5,6 @@
       $('main > section').hide();
       $('#blog-stats').show();
     }
-  }
+  };
   module.adminController = adminController;
 })(window);

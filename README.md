@@ -1,4 +1,6 @@
-# Pair Assignment for Class 12 - REST and APIs
+![CF](https://i.imgur.com/7v5ASc8.png)  12-REST-and-APIs
+=======
+[![Build Status](https://travis-ci.org/codefellows-seattle-301d4/12-REST-and-APIs.svg?branch=master)](https://travis-ci.org/codefellows-seattle-301d4/12-REST-and-APIs)
 
 Now that we understand how applications can handle different URLs, we can write code that communicates with other applications.
 
