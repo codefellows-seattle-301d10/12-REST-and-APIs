@@ -25,9 +25,6 @@ Now that we understand how applications can handle different URLs, we can write 
   - Want to create links to your gists?
   - Maybe highlight your GitHub followers, or whom you follow?
 
-## Testing: Continued!
- - Want even more coding experience? Complete the last section of our `zoo.js` file :)
-
 ## Technical Requirements and Grading Rubric
  - Ensure your code passes ESLint.
  - Place all code within the proper layer of MVC abstraction and encapsulation.
