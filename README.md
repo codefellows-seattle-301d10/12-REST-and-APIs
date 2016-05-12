@@ -1,6 +1,6 @@
 ![CF](https://i.imgur.com/7v5ASc8.png)  Lab 12: REST and APIs
 =======
-[![Build Status](https://travis-ci.org/codefellows-seattle-301d4/12-REST-and-APIs.svg?branch=master)](https://travis-ci.org/codefellows-seattle-301d4/12-REST-and-APIs)
+[![Build Status](https://travis-ci.org/codefellows-seattle-301d4/12-REST-and-APIs.svg?branch=master)](https://travis-ci.org/codefellows-seattle-301d4/12-REST-and-APIs) [![GitHub issues](https://img.shields.io/badge/Issues%3F-Ask%20for%20Help!-orange.svg)](https://github.com/codefellows/seattle-301d4/issues/new)
 
 Now that we understand how applications can handle different URLs, we can write code that communicates with other applications.
 
