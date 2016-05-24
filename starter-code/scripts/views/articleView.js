@@ -5,7 +5,7 @@
 
   // DONE: Convert the model .toHTML method to a proper View method, since it handles the presentation of the data:
   var render = function(article, scriptTemplateId) {
-    var template = Handlebars.compile($('#article-template').text());
+    var template = Handlebars.compile($(scriptTemplateId).text());
 
     article.daysAgo = parseInt((new Date() - new Date(article.publishedOn))/60/60/24/1000);
     article.publishStatus = article.publishedOn ? 'published ' + article.daysAgo + ' days ago' : '(draft)';
@@ -71,7 +71,7 @@
       authorUrl: $('#article-author-url').val(),
       category: $('#article-category').val(),
       body: $('#article-body').val(),
-      publishedOn: $('#article-published:checked').length ? util.today() : null
+      publishedOn: $('#article-published:checked').length ? new Date() : null
     });
 
     $('#articles').append(render(formArticle));
@@ -106,7 +106,7 @@
 
     Article.numWordsByAuthor().forEach(function(words) {
       if($('ul.author-stats li').length < Article.numWordsByAuthor().length) {
-      $('.author-stats').append(template(words));
+        $('.author-stats').append(template(words));
       };
     });
 
