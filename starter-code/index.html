@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="vendor/styles/normalize.css">
+    <link rel="stylesheet" href="styles/icons.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
+    <!-- Code Fellows favicon -->
+    <link rel="icon" type="image/x-icon" href="https://i.imgur.com/7v5ASc8.png">
+
+    <script id="article-template" type="text/x-handlebars-template">
+      <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
+        <header>
+          <h1>{{title}}</h1>
+          <div class="byline">
+            By <address><a href="{{authorUrl}}">{{author}}</a></address>
+            {{publishStatus}}
+          </div>
+        </header>
+        <section class="article-body">{{{body}}}</section>
+        <a href="#" class="read-on">Read on &rarr;</a>
+      </article>
+    </script>
+    <script id="author-filter-template" type="text/x-handlebars-template">
+      <option value="{{author}}">{{author}}</option>
+    </script>
+    <script id="category-filter-template" type="text/x-handlebars-template">
+      <option value="{{category}}">{{category}}</option>
+    </script>
+    <script id="author-template" type="text/x-handlebars-template">
+      <li><strong>{{name}}</strong>: {{numWords}} words written</li>
+    </script>
+
+    <!-- TODO: We have a new Handlebars template! Help fill in a few expressions: -->
+    <script id="repo-template" type="text/x-handlebars-template">
+      <li>
+        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+        <p>Description: {{}}</p>
+        <p>Language: {{}}</p>
+        <p>Created: {{}}</p>
+        <p>Last updated: {{}}</p>
+        {{#if watchers_count}}
+          <p>{{}} watching this repo</p>
+        {{/if}}
+      </li>
+    </script>
+  </head>
+  <body>
+    <header class="site-header clearfix">
+      <section class="heading-group-h1">
+        <h1>
+          Kilovolt Blog!
+        </h1>
+        <h2>The shocking power of static pages</h2>
+      </section>
+      <nav class="main-nav">
+        <!-- Hamburger Menu -->
+        <div class="icon-menu"></div>
+        <ul>
+          <li class="tab" data-content="articles"><a href="/" class="icon-home"> Home</a></li>
+          <li class="tab" data-content="about"><a href="/about" class="icon-address-book"> About</a></li>
+          <li class="tab" data-content="admin"><a href="/admin" class="icon-rocket">Admin</a></li>
+          <li><a href="http://twitter.com/codefellowsSEA" target="_blank" class="icon-twitter3"> Twitter</a></li>
+          <li><a href="http://github.com/" target="_blank" class="icon-github"> GitHub</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="articles" class="tab-content">
+        <div>
+          <ul id="filters">
+            <li>
+              <select id="author-filter">
+                <option value="">-- Filter by Authors --</option>
+              </select>
+            </li>
+            <li>
+              <select id="category-filter">
+                <option value="">-- Filter by Categories --</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="about" class="tab-content">
+        <header>
+          Welcome to my Blog
+        </header>
+        <section>
+          <h1>Check out my Projects on GitHub:</h1>
+          <ul>
+            <li>Coding Projects Go Here</li>
+          </ul>
+        </section>
+      </section>
+      <section id="blog-stats">
+        <h1>Blog Stats</h1>
+        <dt>Total articles:</dt> <dd class="articles"></dd>
+        <dt>Total words:</dt> <dd class="words"></dd>
+        <h2>Author Stats</h2>
+        <p><em>Details on who is writing, and how much writing they are doing...</em></p>
+        <ul class="author-stats">
+        </ul>
+      </section>
+    </main>
+    <footer>
+      &copy; 2016 Code Fellows | Static Blog | Happy Ipsum!
+    </footer>
+
+    <!-- Vendor files: -->
+    <script src="/vendor/scripts/jquery-2.1.4.js"></script>
+    <script src="/vendor/scripts/handlebars.js"></script>
+    <script src="/vendor/scripts/marked.js"></script>
+    <script src="/vendor/scripts/html5sql.js"></script>
+    <script src="/vendor/scripts/webdb.js"></script>
+    <script src="/vendor/scripts/page.js"></script>
+
+    <!-- TODO: Include your secret GitHub token file, which should be gitingore'd,
+      therefore recreated in every developer's environment. -->
+
+    <!-- Model files: -->
+    <!-- TODO: Be sure to include any new model files: -->
+    <script src="/scripts/models/article.js"></script>
+    <!-- View files: -->
+    <!-- TODO: Be sure to include any new view files: -->
+    <script src="/scripts/views/articleView.js"></script>
+    <!-- Controller files: -->
+    <script src="/scripts/controllers/articleController.js"></script>
+    <script src="/scripts/controllers/aboutController.js"></script>
+    <script src="/scripts/controllers/adminController.js"></script>
+
+    <script src="/scripts/controllers/routes.js"></script>
+  </body>
+</html>
