@@ -85,7 +85,7 @@
     $('#article-json').val(JSON.stringify(formArticle) + ',');
   };
 
-  articleView.initIndexPage = function() {
+  articleView.renderIndexPage = function() {
     Article.all.forEach(function(a){
       if($('#category-filter option:contains("'+ a.category + '")').length === 0) {
         $('#category-filter').append(render(a, '#category-filter-template'));

@@ -5,9 +5,9 @@
     },this);
   }
 
-  Article.all = [];
+  Article.allArticles = [];
 
-  Article.createTable = function(callback) {
+  Article.createTable = function() {
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS articles (' +
         'id INTEGER PRIMARY KEY, ' +
@@ -17,53 +17,48 @@
         'category VARCHAR(20), ' +
         'publishedOn DATETIME, ' +
         'body TEXT NOT NULL);',
-      function(result) {
-        console.log('Successfully set up the articles table.', result);
-        if (callback) callback();
+      function() {
+        console.log('Successfully set up the articles table.');
       }
     );
   };
 
-  Article.truncateTable = function(callback) {
+  Article.truncateTable = function() {
     webDB.execute(
-      'DELETE FROM articles;',
-      callback
+      'DELETE FROM articles;'
     );
   };
 
-  Article.prototype.insertRecord = function(callback) {
+  Article.prototype.insertRecord = function() {
     webDB.execute(
       [
         {
           'sql': 'INSERT INTO articles (title, author, authorUrl, category, publishedOn, body) VALUES (?, ?, ?, ?, ?, ?);',
           'data': [this.title, this.author, this.authorUrl, this.category, this.publishedOn, this.body],
         }
-      ],
-      callback
+      ]
     );
   };
 
-  Article.prototype.deleteRecord = function(callback) {
+  Article.prototype.deleteRecord = function() {
     webDB.execute(
       [
         {
           'sql': 'DELETE FROM articles WHERE id = ?;',
           'data': [this.id]
         }
-      ],
-      callback
+      ]
     );
   };
 
-  Article.prototype.updateRecord = function(callback) {
+  Article.prototype.updateRecord = function() {
     webDB.execute(
       [
         {
           'sql': 'UPDATE articles SET title = ?, author = ?, authorUrl = ?, category = ?, publishedOn = ?, body = ? WHERE id = ?;',
           'data': [this.title, this.author, this.authorUrl, this.category, this.publishedOn, this.body, this.id]
         }
-      ],
-      callback
+      ]
     );
   };
 
@@ -73,11 +68,12 @@
     });
   };
 
-  Article.fetchAll = function(next) {
+  Article.fetchAll = function() {
     webDB.execute('SELECT * FROM articles ORDER BY publishedOn DESC', function(rows) {
       if (rows.length) {
         Article.loadAll(rows);
-        next();
+        articleView.renderIndexPage();
+        articleView.initAdminPage();
       } else {
         $.getJSON('/data/hackerIpsum.json', function(rawData) {
           // Cache the json, so we don't need to request it next time:
@@ -87,7 +83,8 @@
           });
           webDB.execute('SELECT * FROM articles', function(rows) {
             Article.loadAll(rows);
-            next();
+            articleView.renderIndexPage();
+            articleView.initAdminPage();
           });
         });
       }
@@ -95,7 +92,7 @@
   };
 
   Article.allAuthors = function() {
-    return Article.all.map(function(article) {
+    return Article.allArticles.map(function(article) {
       return article.author;
     })
     .reduce(function(names, name) {
@@ -107,8 +104,8 @@
   };
 
   Article.numWordsAll = function() {
-    return Article.all.map(function(article) {
-      return article.body.match(/\b\w+/g).length;
+    return Article.allArticles.map(function(article) {
+      return article.body.match(/\w+/g).length;
     })
     .reduce(function(a, b) {
       return a + b;
@@ -119,11 +116,11 @@
     return Article.allAuthors().map(function(author) {
       return {
         name: author,
-        numWords: Article.all.filter(function(a) {
+        numWords: Article.allArticles.filter(function(a) {
           return a.author === author;
         })
         .map(function(a) {
-          return a.body.match(/\b\w+/g).length;
+          return a.body.match(/\w+/g).length;
         })
         .reduce(function(a, b) {
           return a + b;
@@ -131,14 +128,7 @@
       };
     });
   };
-
-  Article.stats = function() {
-    return {
-      numArticles: Article.all.length,
-      numWords: Article.numwords(),
-      Authors: Article.allAuthors(),
-    };
-  };
-
+  Article.createTable();
+  Article.fetchAll();
   module.Article = Article;
 })(window);
