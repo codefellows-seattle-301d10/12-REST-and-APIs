@@ -1,6 +1,6 @@
 ![CF](https://i.imgur.com/7v5ASc8.png)  Lab 12: REST and APIs
 =======
-[![Build Status](https://travis-ci.org/codefellows-seattle-301d4/12-REST-and-APIs.svg?branch=master)](https://travis-ci.org/codefellows-seattle-301d4/12-REST-and-APIs) [![GitHub issues](https://img.shields.io/badge/Issues%3F-Ask%20for%20Help!-orange.svg)](https://github.com/codefellows/seattle-301d4/issues/new)
+[![Build Status](https://travis-ci.org/codefellows-seattle-301d4/12-REST-and-APIs.svg?branch=master)](https://travis-ci.org/codefellows-seattle-301d4/12-REST-and-APIs) [![GitHub issues](https://img.shields.io/badge/Stuck%3F-Ask%20for%20Help!-orange.svg)](https://github.com/codefellows/seattle-301d7/issues/new)
 
 Now that we understand how applications can handle different URLs, we can write code that communicates with other applications. Let each partner try out their own user info to get the chance to see their repos with their token. For today, please create a `githubToken.js` file in the root of your app. Open this file, create a variable, and store your access token. Add the new file to your `.gitignore` in the terminal by running `echo githubToken.js >> .gitignore`
 
