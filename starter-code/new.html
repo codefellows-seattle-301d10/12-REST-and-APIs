@@ -67,7 +67,6 @@
         </form>
       </section>
       <section id="articles" class="tab-content">
-
       </section>
       <section id="article-export">
         <label id="export-field" for="article-json" class="pull-right">
@@ -77,15 +76,18 @@
       </section>
     </main>
     <footer>
-      &copy; 2015 Code Fellows | Static Blog | Happy Ipsum!
+      &copy; 2016 Code Fellows | Static Blog | Happy Ipsum!
     </footer>
-
+    <!-- Vendor Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script src="vendor/scripts/marked.js"></script>
     <script src="vendor/scripts/highlight.pack.js"></script>
+    <!-- Model Files -->
     <script src="scripts/article.js"></script>
-    <script src="scripts/articleView.js"></script>
+    <!-- View Files -->
+    <script src="scripts/viewsa/articleView.js"></script>
+    <script src="/scripts/views/newArticle.js"></script>
     <script>
       articleView.initNewArticlePage();
     </script>

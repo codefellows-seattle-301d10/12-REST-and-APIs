@@ -7,6 +7,9 @@
 
   Article.allArticles = [];
 
+  // TODO: Convert the model .toHTML method to a proper View method,
+  //  since it handles the presentation of the data:
+
   Article.createTable = function() {
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS articles (' +
@@ -63,7 +66,7 @@
   };
 
   Article.loadAll = function(rows) {
-    Article.all = rows.map(function(ele) {
+    Article.allArticles = rows.map(function(ele) {
       return new Article(ele);
     });
   };

@@ -3,29 +3,26 @@
 
   /* NOTE: Private methods declared here live only within
       the scope of the wrapping IIFE. */
-  var ui = function() {
-    var $about = $('#about'); // Best practice: Cache the DOM query if it's used more than once.
-
+  var renderPrep = function() {
+    // Best practice: Cache the DOM query if it's used more than once.
+    var $about = $('#about');
     $about.find('ul').empty();
-    $about.show().siblings().hide();
+    // $about.fadeIn().siblings().hide();
   };
 
-  /* NOTE: Remember that new Handlebars template? Let's compile it!
-      Save the result in this `render` variable that we will pass to
+  /* TODO: Let's compile our new template!
+      Save the result in this `repoCompiler` variable that we will pass to
       the append method below. */
-  var render /*TODO: finish this line */;
+  var repoCompiler = Handlebars.compile($('#repo-template').text());
 
-  /* NOTE: If all the data is loaded, we can prep the UI and
+  /* NOTE: If all the data is loaded, we can
       render the repos. */
-  repoView.index = function() {
-    ui();
+  repoView.renderRepos = function() {
+    renderPrep();
     $('#about ul').append(
-      repos.with('name').map(render)
+      repos.withTheAttribute('name')
+      .map(repoCompiler)
     );
-    /* NOTE: This jQuery `append` method lets us append an entire array
-        of HTML elements at once, so we can use a little FP to
-        transform our data-set into DOM nodes. "repos.with"
-        is a method we wrote in the repos model. */
   };
 
   module.repoView = repoView;

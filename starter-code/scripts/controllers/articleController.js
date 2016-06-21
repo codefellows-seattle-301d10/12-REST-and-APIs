@@ -1,9 +1,10 @@
 (function(module) {
-  var articlesController = {};
+  var articleController = {};
 
-  articlesController.index = function() {
-    $('#articles').show().siblings().hide();
+  articleController.index = function() {
+    $('.tab-content').hide();
+    $('#articles').fadeIn();
   };
 
-  module.articlesController = articlesController;
+  module.articleController = articleController;
 })(window);
