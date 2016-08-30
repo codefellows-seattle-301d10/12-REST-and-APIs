@@ -11,7 +11,7 @@
 
   repoView.renderRepos = function() {
     $('#about ul').empty().append(
-      reposObj.withTheAttribute('name')
+      reposObj.withTheAttribute('id') //changed to watchers, none of them had watchers
       .map(repoCompiler)
     );
   };
