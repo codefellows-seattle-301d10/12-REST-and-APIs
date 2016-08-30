@@ -12,9 +12,11 @@
            '?per_page=5' +
            '&sort=updated',
       type: 'GET',
-      headers: {'Authorization': 'token ' + 'githubToken'},
+      headers: {'Authorization': 'token ' + githubToken},
       success: function(data) {
         console.log(data);
+        reposObj.allRepos = data;
+        callback();
       }
     });
   };

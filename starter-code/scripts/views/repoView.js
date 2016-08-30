@@ -3,10 +3,11 @@
   /* TODO: DONE-ish Let's compile our new template!
        Save the result of invoking Handlebars in this 'repoCompiler' variable
        that we will pass to the append method below. */
-  var repoCompiler = function() {
+  var repoCompiler = function(thisRepo) {
     var source = $('#repo-template').html();
     var templateRender = Handlebars.compile(source);
-    return templateRender(this);
+    console.log(thisRepo);
+    return templateRender(thisRepo);
   };
   // Finish the Handlebars method here!
 
@@ -20,4 +21,4 @@
     Pass in some view function as a higher order callback, so our repos
     will render after the data is loaded. */
   reposObj.requestRepos(repoView.renderRepos);
-});
+})(window);
