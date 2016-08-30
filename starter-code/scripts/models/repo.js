@@ -7,7 +7,6 @@
   reposObj.requestRepos = function(callback) {
     /* TODO: DONE-ish How would you like to fetch your repos? Someone say AJAX?!
       Do not forget to call the callback! */
-
     $.ajax({
       url: 'https://api.github.com/users/codefellows-seattle-301d10/repos' +
            '?per_page=5' +
