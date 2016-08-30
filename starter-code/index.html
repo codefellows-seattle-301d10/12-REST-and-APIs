@@ -35,15 +35,8 @@
     </script>
     <script id="repo-template" type="text/x-handlebars-template">
       <li>
-        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
-        <!-- TODO: fill in these  expressions... -->
-        <p>Description: {{}}</p>
-        <p>Primary Language: {{}}</p>
-        <p>Created: {{}}</p>
-        <p>Last Updated: {{}}</p>
-        {{#if watchers_count}}
-          <p>{{}} watching this repo</p>
-        {{/if}}
+        <a href="{{}}" target="_blank"><h3>{{}}</h3></a>
+        
       </li>
     </script>
   </head>
