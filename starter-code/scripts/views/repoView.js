@@ -1,6 +1,6 @@
 (function(module) {
   var repoView = {};
-  /* TODO: DONE-ish Let's compile our new template!
+  /* TODO: DONE Let's compile our new template!
        Save the result of invoking Handlebars in this 'repoCompiler' variable
        that we will pass to the append method below. */
   var repoCompiler = function(thisRepo) {
@@ -13,7 +13,7 @@
 
   repoView.renderRepos = function() {
     $('#about ul').empty().append(
-      reposObj.withTheAttribute('name')  // TODO: experiment changing this attribute!
+      reposObj.withTheAttribute('fork')  // TODO: experiment changing this attribute!
       .map(repoCompiler)
     );
   };
