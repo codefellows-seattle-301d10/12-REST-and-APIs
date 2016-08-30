@@ -6,10 +6,8 @@
   var repoCompiler = Handlebars.compile($('#repo-template').text());
 
   repoView.renderRepos = function() {
-    $('#about ul').empty().append(
-      reposObj.withTheAttribute('name')  // TODO: experiment changing this attribute!
-      .map(repoCompiler)
-    );
+    // TODO: DONE experiment changing this attribute!
+    $('#about ul').empty().append(reposObj.withTheAttribute('forks').map(repoCompiler));
   };
 /* TODO: DONE Call the function that loads (or 'requests') our repo data.
     Pass in some view function as a higher order callback, so our repos
