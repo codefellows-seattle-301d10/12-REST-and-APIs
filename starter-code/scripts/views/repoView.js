@@ -1,9 +1,10 @@
 (function(module) {
   var repoView = {};
-  /* TODO: Let's compile our new template!
+
+  /* TODO: Done Let's compile our new template!
        Save the result of invoking Handlebars in this 'repoCompiler' variable
        that we will pass to the append method below. */
-  var repoCompiler = function(){};  // Finish the Handlebars method here!
+  var repoCompiler = Handlebars.compile($('#githubRepo-template'));  // Finish the Handlebars method here!
 
   repoView.renderRepos = function() {
     $('#about ul').empty().append(
