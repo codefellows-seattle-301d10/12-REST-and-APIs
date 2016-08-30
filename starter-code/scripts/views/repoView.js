@@ -1,14 +1,17 @@
 (function(module) {
   var repoView = {};
 
-  /* TODO: Done Let's compile our new template!
+  /* TODO: DONE Let's compile our new template!
        Save the result of invoking Handlebars in this 'repoCompiler' variable
        that we will pass to the append method below. */
-  var repoCompiler = Handlebars.compile($('#githubRepo-template'));  // Finish the Handlebars method here!
+  var repoCompiler = function(aRepo){
+    var templateRender = Handlebars.compile($('#repo-template').text());
+    return templateRender(aRepo);
+  };
 
   repoView.renderRepos = function() {
     $('#about ul').empty().append(
-      reposObj.withTheAttribute('name')  // TODO: experiment changing this attribute!
+      reposObj.withTheAttribute('name')
       .map(repoCompiler)
     );
   };
