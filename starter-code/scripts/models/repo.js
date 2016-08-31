@@ -13,7 +13,8 @@
       headers: '',
       success: function(data) {
         console.log('yay');
-        reposObj.allRepos = data;  
+        reposObj.allRepos = data;
+        callback(); //placeholder; 
       }
     });
   };
