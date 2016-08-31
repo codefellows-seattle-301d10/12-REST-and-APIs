@@ -7,7 +7,7 @@
 
   repoView.renderRepos = function() {
     $('#about ul').empty().append(
-      reposObj.withTheAttribute('name')  // TODO: experiment changing this attribute!
+      reposObj.withTheAttribute('name')  // TODO: experiment changing this attribute! I DID IT AND IT BROKE EVERYTHING
       .map(repoCompiler)
     );
   };
