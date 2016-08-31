@@ -36,13 +36,13 @@
     <script id="repo-template" type="text/x-handlebars-template">
       <li>
         <!-- TODO: fill in our Handlebars expressions -->
-        <a href="{{}}" target="_blank"><h3>{{}}</h3></a>
-        <p>Description: {{}}</p>
-        <p>Language: {{}}</p>
-        <p>Created: {{}}</p>
-        <p>Last updated: {{}}</p>
+        <a href="{{html_url}}" target="_blank"><h3>{{full_name}}</h3></a>
+        <p>Description: {{description}}</p>
+        <p>Language: {{language}}</p>
+        <p>Created: {{created_at}}</p>
+        <p>Last updated: {{updated_at}}</p>
         {{#if watchers_count}}
-         <p>{{}} watching this repo</p>
+         <p>{{watchers_count}} watching this repo</p>
         {{/if}}
       </li>
     </script>
